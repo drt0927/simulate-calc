@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주택 청약 가점 계산기 - 청약Home 기준 (2025/2026)</title>
+    <meta name="description"
+        content="주택 청약 가점 계산기. 무주택 기간, 부양가족 수, 청약통장 가입 기간을 입력하여 나의 청약 가점을 간편하게 계산해보세요. 한국부동산원 청약Home 기준 로직 적용.">
+    <meta name="keywords"
+        content="주택 청약 가점 계산기, 청약 가점 계산, 아파트 청약 점수, 주택청약 1순위 조건, 무주택 기간 계산, 부양가족수 점수, 청약통장 가입기간 점수, 2025년 청약 제도">
+    <meta name="author" content="Simulate Calc">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://drt0927.github.io/simulate-calc/housing-subscription/">
+
+    <!-- Open Graph (Facebook/Kakao) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="주택 청약 가점 계산기 - 내 청약 점수는 몇 점?">
+    <meta property="og:description" content="복잡한 계산 없이 클릭 몇 번으로 청약 가점을 확인하세요. 청약Home 기준 무주택/부양가족/통장 점수 자동 합산.">
+    <meta property="og:url" content="https://drt0927.github.io/simulate-calc/housing-subscription/">
+    <meta property="og:site_name" content="Simulate Calc - 한국 정책 모의 계산기">
+    <meta property="og:image" content="https://drt0927.github.io/simulate-calc/housing-subscription/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="주택 청약 가점 계산기">
+    <meta name="twitter:description" content="내 청약 점수 바로 확인하기. 청약Home 기준 가점표 적용.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "주택 청약 가점 계산기",
+      "description": "한국부동산원 청약Home 기준 주택 청약 가점 계산기입니다.",
+      "url": "https://drt0927.github.io/simulate-calc/housing-subscription/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      }
+    }
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="../assets/css/common.css" rel="stylesheet">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2023113892715510"
+        crossorigin="anonymous"></script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5PDVVMQG');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body class="bg-light">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PDVVMQG" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="/">Simulate-Calc</a>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+
+                <div class="text-center mb-5">
+                    <h1 class="fw-bold mb-2 text-primary">🏠 주택 청약 가점 계산기</h1>
+                    <p class="text-muted">나의 청약 가점은? 복잡한 계산식 없이 간편하게 확인해보세요.</p>
+                </div>
+
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2">청약Home
+                                기준</span>
+                            <span class="badge rounded-pill bg-secondary bg-opacity-10 text-secondary px-3 py-2">84점
+                                만점</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 p-md-5">
+
+                        <!-- 1. 무주택 기간 -->
+                        <div class="mb-5 section-group">
+                            <label for="periodHome"
+                                class="form-label d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">1. 무주택 기간 (32점)</span>
+                                <span class="badge bg-light text-dark border point-badge"
+                                    id="scorePeriodDisplay">0점</span>
+                            </label>
+                            <select class="form-select form-select-lg" id="periodHome" aria-label="무주택 기간 선택">
+                                <option value="0">1년 미만 (2점)</option>
+                                <option value="1">1년 이상 ~ 2년 미만 (4점)</option>
+                                <option value="2">2년 이상 ~ 3년 미만 (6점)</option>
+                                <option value="3">3년 이상 ~ 4년 미만 (8점)</option>
+                                <option value="4">4년 이상 ~ 5년 미만 (10점)</option>
+                                <option value="5">5년 이상 ~ 6년 미만 (12점)</option>
+                                <option value="6">6년 이상 ~ 7년 미만 (14점)</option>
+                                <option value="7">7년 이상 ~ 8년 미만 (16점)</option>
+                                <option value="8">8년 이상 ~ 9년 미만 (18점)</option>
+                                <option value="9">9년 이상 ~ 10년 미만 (20점)</option>
+                                <option value="10">10년 이상 ~ 11년 미만 (22점)</option>
+                                <option value="11">11년 이상 ~ 12년 미만 (24점)</option>
+                                <option value="12">12년 이상 ~ 13년 미만 (26점)</option>
+                                <option value="13">13년 이상 ~ 14년 미만 (28점)</option>
+                                <option value="14">14년 이상 ~ 15년 미만 (30점)</option>
+                                <option value="15">15년 이상 (32점)</option>
+                            </select>
+                            <div class="form-text mt-2">
+                                <small>※ 만 30세 미만 미혼자는 '0점' 적용 (1년 미만 선택)</small><br>
+                                <small>※ 만 30세 이전에 결혼한 경우 혼인신고일부터 산정</small>
+                            </div>
+                        </div>
+
+                        <!-- 2. 부양가족 수 -->
+                        <div class="mb-5 section-group">
+                            <label for="dependents"
+                                class="form-label d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">2. 부양가족 수 (35점)</span>
+                                <span class="badge bg-light text-dark border point-badge"
+                                    id="scoreDependentsDisplay">5점</span>
+                            </label>
+
+                            <div class="input-group input-group-lg">
+                                <button class="btn btn-outline-secondary" type="button" id="btnMinusDep">-</button>
+                                <input type="number" class="form-control text-center fw-bold" id="dependents" value="0"
+                                    min="0" max="6" readonly>
+                                <button class="btn btn-outline-secondary" type="button" id="btnPlusDep">+</button>
+                            </div>
+                            <div class="form-text mt-2 text-center">
+                                <small id="dependentsText">본인을 제외한 가족 수: 0명 (5점)</small>
+                            </div>
+                        </div>
+
+                        <!-- 3. 청약통장 가입 기간 -->
+                        <div class="mb-5 section-group">
+                            <label for="periodAccount"
+                                class="form-label d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">3. 청약통장 가입 기간 (17점)</span>
+                                <span class="badge bg-light text-dark border point-badge"
+                                    id="scoreAccountDisplay">1점</span>
+                            </label>
+                            <select class="form-select form-select-lg" id="periodAccount" aria-label="청약통장 가입 기간 선택">
+                                <option value="0">6개월 미만 (1점)</option>
+                                <option value="0.5">6개월 이상 ~ 1년 미만 (2점)</option>
+                                <option value="1">1년 이상 ~ 2년 미만 (3점)</option>
+                                <option value="2">2년 이상 ~ 3년 미만 (4점)</option>
+                                <option value="3">3년 이상 ~ 4년 미만 (5점)</option>
+                                <option value="4">4년 이상 ~ 5년 미만 (6점)</option>
+                                <option value="5">5년 이상 ~ 6년 미만 (7점)</option>
+                                <option value="6">6년 이상 ~ 7년 미만 (8점)</option>
+                                <option value="7">7년 이상 ~ 8년 미만 (9점)</option>
+                                <option value="8">8년 이상 ~ 9년 미만 (10점)</option>
+                                <option value="9">9년 이상 ~ 10년 미만 (11점)</option>
+                                <option value="10">10년 이상 ~ 11년 미만 (12점)</option>
+                                <option value="11">11년 이상 ~ 12년 미만 (13점)</option>
+                                <option value="12">12년 이상 ~ 13년 미만 (14점)</option>
+                                <option value="13">13년 이상 ~ 14년 미만 (15점)</option>
+                                <option value="14">14년 이상 ~ 15년 미만 (16점)</option>
+                                <option value="15">15년 이상 (17점)</option>
+                            </select>
+                        </div>
+
+                        <hr class="my-4 text-secondary opacity-25">
+
+                        <!-- 결과 영역 -->
+                        <div class="result-box bg-primary bg-opacity-10 rounded-4 p-4 text-center mt-4">
+                            <h3 class="h6 text-uppercase text-primary fw-bold letter-spacing-1 mb-2">Total Score</h3>
+                            <div class="display-1 fw-bold text-dark mb-0" id="totalScore">0<span
+                                    class="fs-4 fw-normal text-muted ms-1">점</span></div>
+                            <p class="mb-0 text-muted small mt-2">만점: 84점</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 출처 및 안내 -->
+                <div class="accordion accordion-flush bg-transparent" id="infoAccordion">
+                    <div class="accordion-item bg-transparent border-0">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button bg-transparent shadow-none px-0 text-muted small"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                aria-expanded="true">
+                                <i class="bi bi-info-circle me-1"></i> 계산식 출처 및 참고자료
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body px-0 pt-0 small text-secondary">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-1"><strong>관련 기관:</strong> 한국부동산원 청약Home</li>
+                                    <li class="mb-1"><strong>근거 법령:</strong> [주택공급에 관한 규칙] 별표1 '입주자저축 가입기간에 관한 가점점수
+                                        산정기준' 등</li>
+                                    <li><strong>웹사이트:</strong> <a href="https://www.applyhome.co.kr" target="_blank"
+                                            class="text-secondary text-decoration-underline">https://www.applyhome.co.kr</a>
+                                    </li>
+                                </ul>
+                                <div class="mt-2 text-muted fst-italic">
+                                    ※ 본 계산 결과는 모의 계산용이며, 실제 청약 결과와 다를 수 있습니다. 정확한 가점은 청약 신청 시 청약Home에서 확인하시기 바랍니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5 mb-5">
+                    <a href="/" class="btn btn-outline-secondary rounded-pill px-4">
+                        ← 메인으로 돌아가기
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

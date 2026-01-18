@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>육아기 근로시간 단축급여 계산기</title>
   <!-- SEO: 기본 메타 -->
-  <meta name="description" content="육아기 근로시간 단축급여(고용보험) 모의 계산기. 단축 시작일 기준 상한 자동 적용(2026년 1월 이후 250/160) 및 소득 항목별 입력(통상임금 포함/단축 시 지급방식) 지원.">
+  <meta name="description"
+    content="육아기 근로시간 단축급여(고용보험) 모의 계산기. 단축 시작일 기준 상한 자동 적용(2026년 1월 이후 250/160) 및 소득 항목별 입력(통상임금 포함/단축 시 지급방식) 지원.">
   <meta name="keywords" content="육아기 근로시간 단축급여, 고용보험, 육아기 단축근무, 단축급여 계산기, 통상임금, 고용24, 모의계산">
   <meta name="author" content="https://drt0927.github.io/simulate-calc/childcare">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -43,11 +45,28 @@
       background: #fff;
       min-height: 120px;
     }
-    .kpi .t { font-size: 0.8rem; color: #6c757d; }
-    .kpi .v { font-size: 1.25rem; font-weight: 800; margin-top: 6px; }
-    .kpi .s { font-size: 0.8rem; color: #6c757d; margin-top: 6px; line-height: 1.35; }
 
-    input[inputmode="numeric"] { font-variant-numeric: tabular-nums; }
+    .kpi .t {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .kpi .v {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 6px;
+    }
+
+    .kpi .s {
+      font-size: 0.8rem;
+      color: #6c757d;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    input[inputmode="numeric"] {
+      font-variant-numeric: tabular-nums;
+    }
 
     .formula {
       background: #f8f9fa;
@@ -57,6 +76,7 @@
       font-size: .875rem;
       line-height: 1.8;
     }
+
     .var {
       font-weight: 800;
       padding: 1px 6px;
@@ -65,24 +85,50 @@
       border: 1px solid #e9ecef;
       display: inline-block;
     }
-    .eq { font-weight: 800; }
 
-    .table td, .table th { vertical-align: middle; }
-    .w-amt { width: 150px; }
-    .w-small { width: 140px; }
-    .w-btn { width: 84px; }
+    .eq {
+      font-weight: 800;
+    }
 
-    #msg:empty { display:none; }
+    .table td,
+    .table th {
+      vertical-align: middle;
+    }
+
+    .w-amt {
+      width: 150px;
+    }
+
+    .w-small {
+      width: 140px;
+    }
+
+    .w-btn {
+      width: 84px;
+    }
+
+    #msg:empty {
+      display: none;
+    }
 
     /* 헤더 아래 설명줄 간격 */
-    .mb-3 > p.small { max-width: 980px; }
+    .mb-3>p.small {
+      max-width: 980px;
+    }
 
     /* 카드가 헤더를 너무 먹지 않게 */
-    .card.shadow-sm { box-shadow: 0 .25rem .75rem rgba(0,0,0,.06) !important; }
+    .card.shadow-sm {
+      box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .06) !important;
+    }
 
     /* accordion 버튼 글씨/높이 컴팩트 */
-    .accordion-button { font-size: .95rem; }
-    .accordion-button:focus { box-shadow: none; }
+    .accordion-button {
+      font-size: .95rem;
+    }
+
+    .accordion-button:focus {
+      box-shadow: none;
+    }
   </style>
 
   <script type="application/ld+json">
@@ -154,21 +200,29 @@
     crossorigin="anonymous"></script>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
-          w[l] = w[l] || []; w[l].push({
-              'gtm.start':
-                  new Date().getTime(), event: 'gtm.js'
-          }); var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                  'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-5PDVVMQG');</script>
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5PDVVMQG');</script>
   <!-- End Google Tag Manager -->
 </head>
 
 <body class="bg-light">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PDVVMQG" height="0" width="0"
-          style="display:none;visibility:hidden"></iframe></noscript>
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="/">Simulate-Calc</a>
+    </div>
+  </nav>
+
   <main class="container py-4">
     <div class="mb-3">
       <h1 class="h4 fw-bold mb-1">
@@ -198,7 +252,8 @@
                 <li><b>단축 전/후 주 소정근로시간(H₀/H₁)</b>과 <b>통상임금(W)</b>으로 단축급여 예상액을 계산합니다.</li>
                 <li><b>단축 시작일</b>에 따라 달라지는 <b>상한(예: 2026년 이후 250/160)</b>을 자동 적용할 수 있습니다.</li>
                 <li><b>소득 항목별 입력</b>으로 통상임금 포함 여부/단축 시 회사 지급방식(비례·전액·미지급)을 반영해
-                  <b>회사급여 + 단축급여 합산</b>도 확인합니다.</li>
+                  <b>회사급여 + 단축급여 합산</b>도 확인합니다.
+                </li>
               </ul>
 
               <div class="small text-secondary mt-2">
@@ -211,7 +266,7 @@
             <div class="col-12 col-lg-5">
               <div class="border rounded-3 p-2 bg-light">
                 <button class="btn btn-sm btn-outline-secondary w-100 d-flex justify-content-between align-items-center"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse" aria-expanded="false">
+                  type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse" aria-expanded="false">
                   <span class="fw-semibold">자주 묻는 질문(FAQ)</span>
                   <span class="text-secondary">열기</span>
                 </button>
@@ -220,7 +275,8 @@
                   <div class="accordion accordion-flush" id="faqAcc">
                     <div class="accordion-item bg-light">
                       <h3 class="accordion-header" id="q1">
-                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#a1">
                           통상임금(W)은 무엇인가요?
                         </button>
                       </h3>
@@ -233,7 +289,8 @@
 
                     <div class="accordion-item bg-light">
                       <h3 class="accordion-header" id="q2">
-                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#a2">
                           왜 시작일에 따라 결과가 달라지나요?
                         </button>
                       </h3>
@@ -246,7 +303,8 @@
 
                     <div class="accordion-item bg-light">
                       <h3 class="accordion-header" id="q3">
-                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+                        <button class="accordion-button collapsed py-2 bg-light" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#a3">
                           실제 지급액이 다를 수 있나요?
                         </button>
                       </h3>
@@ -296,7 +354,8 @@
 
             <div class="row g-2 mt-1">
               <div class="col-12 col-md-6">
-                <label class="form-label small">해당 월 적용비율 <span class="fw-bold">(ratio)</span> <span class="text-secondary">(0~1)</span></label>
+                <label class="form-label small">해당 월 적용비율 <span class="fw-bold">(ratio)</span> <span
+                    class="text-secondary">(0~1)</span></label>
                 <input id="ratio" type="number" min="0" max="1" step="0.01" class="form-control" value="1">
               </div>
 
@@ -344,7 +403,8 @@
             <div id="directBox" class="mt-3">
               <div class="row g-2">
                 <div class="col-12 col-md-6">
-                  <label class="form-label small">월 통상임금 <span class="fw-bold">(W)</span> <span class="text-secondary">(원, 세전)</span></label>
+                  <label class="form-label small">월 통상임금 <span class="fw-bold">(W)</span> <span
+                      class="text-secondary">(원, 세전)</span></label>
                   <input id="wage" inputmode="numeric" class="form-control" value="3000000" placeholder="예: 3000000">
                   <div class="form-text">
                     회사 급여(단축 후) 단순추정: <code>단축 전 월급 × (H₁/H₀)</code>
@@ -398,7 +458,8 @@
 
             <div class="row g-2">
               <div class="col-12 col-md-6">
-                <label class="form-label small">100% 구간 단축시간 <span class="fw-bold">(Threshold)</span> <span class="text-secondary">(주, 시간)</span></label>
+                <label class="form-label small">100% 구간 단축시간 <span class="fw-bold">(Threshold)</span> <span
+                    class="text-secondary">(주, 시간)</span></label>
                 <input id="threshold" type="number" min="0" step="1" class="form-control" value="10">
               </div>
               <div class="col-12 col-md-6">
@@ -409,18 +470,21 @@
 
             <div class="row g-2 mt-1">
               <div class="col-12 col-md-6">
-                <label class="form-label small">100% 구간 상한 <span class="fw-bold">(capA)</span> <span class="text-secondary">(원)</span></label>
+                <label class="form-label small">100% 구간 상한 <span class="fw-bold">(capA)</span> <span
+                    class="text-secondary">(원)</span></label>
                 <input id="capA" inputmode="numeric" class="form-control" value="2500000">
               </div>
               <div class="col-12 col-md-6">
-                <label class="form-label small">나머지 구간 상한 <span class="fw-bold">(capB)</span> <span class="text-secondary">(원)</span></label>
+                <label class="form-label small">나머지 구간 상한 <span class="fw-bold">(capB)</span> <span
+                    class="text-secondary">(원)</span></label>
                 <input id="capB" inputmode="numeric" class="form-control" value="1600000">
               </div>
             </div>
 
             <div class="row g-2 mt-1">
               <div class="col-12 col-md-6">
-                <label class="form-label small">하한 <span class="fw-bold">(floor)</span> <span class="text-secondary">(원)</span></label>
+                <label class="form-label small">하한 <span class="fw-bold">(floor)</span> <span
+                    class="text-secondary">(원)</span></label>
                 <input id="floor" inputmode="numeric" class="form-control" value="500000">
               </div>
 
@@ -479,7 +543,8 @@
             <div class="accordion" id="infoAcc">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="h-links">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c-links">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#c-links">
                     계산식 근거/출처 (공식 링크)
                   </button>
                 </h2>
@@ -487,25 +552,29 @@
                   <div class="accordion-body small text-secondary">
                     <div class="mb-2">
                       <b>고용24(Work24) 제도 안내</b><br>
-                      <a href="https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000252&systId=SI00000397" target="_blank" rel="noopener">
+                      <a href="https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000252&systId=SI00000397"
+                        target="_blank" rel="noopener">
                         육아기 근로시간 단축과 단축급여 안내
                       </a>
                     </div>
                     <div class="mb-2">
                       <b>고용24(Work24) 모의계산</b><br>
-                      <a href="https://www.work24.go.kr/cm/c/f/1100/selecSimulate13.do?currentPageNo=1&recordCountPerPage=10&systClId=SC00000252&systCnntId=CI00001582&systId=SI00000397&upprSystClId=SC00000245" target="_blank" rel="noopener">
+                      <a href="https://www.work24.go.kr/cm/c/f/1100/selecSimulate13.do?currentPageNo=1&recordCountPerPage=10&systClId=SC00000252&systCnntId=CI00001582&systId=SI00000397&upprSystClId=SC00000245"
+                        target="_blank" rel="noopener">
                         단축급여 모의계산
                       </a>
                     </div>
                     <div class="mb-2">
                       <b>고용보험(EI) 안내</b><br>
-                      <a href="https://ei.work24.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0303Info.do" target="_blank" rel="noopener">
+                      <a href="https://ei.work24.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0303Info.do" target="_blank"
+                        rel="noopener">
                         육아기 근로시간 단축 안내
                       </a>
                     </div>
                     <div>
                       <b>법령(국가법령정보센터)</b><br>
-                      <a href="https://law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B3%A0%EC%9A%A9%EB%B3%B4%ED%97%98%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">
+                      <a href="https://law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B3%A0%EC%9A%A9%EB%B3%B4%ED%97%98%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9"
+                        target="_blank" rel="noopener">
                         고용보험법 시행령
                       </a>
                     </div>
@@ -520,7 +589,8 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header" id="h-formula">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c-formula">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#c-formula">
                     계산식 (요약) — 변수에 마우스 올리면 뜻이 떠요
                   </button>
                 </h2>
@@ -538,37 +608,44 @@
                       <div>
                         <span class="var" data-bs-toggle="tooltip" title="100% 구간 단축시간(주 기준)">A시간</span>
                         <span class="eq">=</span>
-                        min(<span class="var" data-bs-toggle="tooltip" title="100% 구간 기준 단축시간">Threshold</span>, <span class="var" data-bs-toggle="tooltip" title="주당 단축시간">R</span>)
+                        min(<span class="var" data-bs-toggle="tooltip" title="100% 구간 기준 단축시간">Threshold</span>, <span
+                          class="var" data-bs-toggle="tooltip" title="주당 단축시간">R</span>)
                         ,
                         <span class="var" data-bs-toggle="tooltip" title="나머지 단축시간(주 기준)">B시간</span>
                         <span class="eq">=</span>
-                        max(<span class="var" data-bs-toggle="tooltip" title="주당 단축시간">R</span> − <span class="var" data-bs-toggle="tooltip" title="100% 구간 기준 단축시간">Threshold</span>, 0)
+                        max(<span class="var" data-bs-toggle="tooltip" title="주당 단축시간">R</span> − <span class="var"
+                          data-bs-toggle="tooltip" title="100% 구간 기준 단축시간">Threshold</span>, 0)
                       </div>
 
                       <div class="mt-2">
                         <span class="var" data-bs-toggle="tooltip" title="100% 구간 급여(월)">A급여</span>
                         <span class="eq">=</span>
-                        min(<span class="var" data-bs-toggle="tooltip" title="월 통상임금">W</span>, <span class="var" data-bs-toggle="tooltip" title="100% 구간 상한">capA</span>)
+                        min(<span class="var" data-bs-toggle="tooltip" title="월 통상임금">W</span>, <span class="var"
+                          data-bs-toggle="tooltip" title="100% 구간 상한">capA</span>)
                         × (A시간 / <span class="var" data-bs-toggle="tooltip" title="단축 전 주 소정근로시간">H₀</span>)
                       </div>
 
                       <div>
                         <span class="var" data-bs-toggle="tooltip" title="나머지 구간 급여(월)">B급여</span>
                         <span class="eq">=</span>
-                        min(<span class="var" data-bs-toggle="tooltip" title="월 통상임금×지급률">W×pctB</span>, <span class="var" data-bs-toggle="tooltip" title="나머지 구간 상한">capB</span>)
+                        min(<span class="var" data-bs-toggle="tooltip" title="월 통상임금×지급률">W×pctB</span>, <span
+                          class="var" data-bs-toggle="tooltip" title="나머지 구간 상한">capB</span>)
                         × (B시간 / <span class="var" data-bs-toggle="tooltip" title="단축 전 주 소정근로시간">H₀</span>)
                       </div>
 
                       <div class="mt-2">
                         <span class="var" data-bs-toggle="tooltip" title="최종 월 단축급여(고용보험)">월급여</span>
                         <span class="eq">=</span>
-                        max( (A급여 + B급여) × <span class="var" data-bs-toggle="tooltip" title="해당 월 적용비율(일할)">ratio</span>,
-                        <span class="var" data-bs-toggle="tooltip" title="하한">floor</span> × <span class="var" data-bs-toggle="tooltip" title="해당 월 적용비율">ratio</span> )
+                        max( (A급여 + B급여) × <span class="var" data-bs-toggle="tooltip"
+                          title="해당 월 적용비율(일할)">ratio</span>,
+                        <span class="var" data-bs-toggle="tooltip" title="하한">floor</span> × <span class="var"
+                          data-bs-toggle="tooltip" title="해당 월 적용비율">ratio</span> )
                       </div>
 
                       <div class="mt-2 text-secondary small">
                         <b>회사 급여 단순추정</b>:
-                        단축 후 회사 월급 ≈ 단축 전 월급 × (<span class="var" data-bs-toggle="tooltip" title="단축 후/단축 전 근로시간 비율">H₁/H₀</span>)
+                        단축 후 회사 월급 ≈ 단축 전 월급 × (<span class="var" data-bs-toggle="tooltip"
+                          title="단축 후/단축 전 근로시간 비율">H₁/H₀</span>)
                       </div>
                     </div>
                   </div>
@@ -653,6 +730,12 @@
             </div><!-- /row -->
           </div>
         </div>
+
+        <div class="text-center mt-5 mb-5">
+          <a href="/" class="btn btn-outline-secondary rounded-pill px-4">
+            ← 메인으로 돌아가기
+          </a>
+        </div>
       </div>
     </div><!-- /row -->
   </main><!-- /container -->
@@ -663,26 +746,26 @@
   <script>
     const $ = (id) => document.getElementById(id);
 
-    function toNumber(raw){
+    function toNumber(raw) {
       if (raw === null || raw === undefined) return NaN;
-      const s = String(raw).replace(/[, ]/g,'').trim();
+      const s = String(raw).replace(/[, ]/g, '').trim();
       if (s === '') return NaN;
       return Number(s);
     }
 
-    function fmtWon(n){
+    function fmtWon(n) {
       if (!isFinite(n)) return '-';
       return Math.round(n).toLocaleString('ko-KR') + '원';
     }
 
-    function setMsg(type, html){
+    function setMsg(type, html) {
       const el = $('msg');
-      if (!html){ el.innerHTML = ''; return; }
+      if (!html) { el.innerHTML = ''; return; }
       const cls = type === 'err' ? 'alert alert-danger' : (type === 'warn' ? 'alert alert-warning' : 'alert alert-info');
       el.innerHTML = `<div class="${cls} py-2 small mb-0">${html}</div>`;
     }
 
-    function formatCurrencyInput(el){
+    function formatCurrencyInput(el) {
       const n = toNumber(el.value);
       if (!isFinite(n)) return;
       el.value = Math.round(n).toLocaleString('ko-KR');
@@ -691,7 +774,7 @@
     // ---------- 날짜 기반 정책(상한/기준) ----------
     // 고용24 모의계산 화면의 “급여지급 대상 기간”에 맞춘 구간.
     // 필요 시 여기만 수정하면 됩니다.
-    function policyByStartDate(startDateStr){
+    function policyByStartDate(startDateStr) {
       const d = new Date(startDateStr);
       if (isNaN(d)) return null;
 
@@ -705,7 +788,7 @@
       return { threshold: 5, capA: 2000000, capB: 1500000, floor: 500000 };
     }
 
-    function applyPolicyByDate(){
+    function applyPolicyByDate() {
       if (!$('autoPolicy').checked) return;
       const start = $('startDate').value;
       const p = policyByStartDate(start);
@@ -718,11 +801,11 @@
     }
 
     // ---------- 날짜 기반 ratio(같은 달일 때만) ----------
-    function daysInMonth(year, month1to12){
+    function daysInMonth(year, month1to12) {
       return new Date(year, month1to12, 0).getDate();
     }
 
-    function applyRatioByDates(){
+    function applyRatioByDates() {
       if (!$('autoRatio').checked) return;
 
       const s = new Date($('startDate').value);
@@ -730,18 +813,18 @@
       if (isNaN(s) || isNaN(e)) return;
 
       // 시작/종료 검증
-      if (e < s){
+      if (e < s) {
         setMsg('err', '종료일이 시작일보다 빠릅니다. 날짜를 확인해 주세요.');
         return;
       }
 
       // 같은 달이면 ratio 자동 계산
-      if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth()){
+      if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth()) {
         const year = s.getFullYear();
         const month = s.getMonth() + 1; // 1~12
         const dim = daysInMonth(year, month);
 
-        const days = Math.floor((e - s) / (24*60*60*1000)) + 1; // 포함
+        const days = Math.floor((e - s) / (24 * 60 * 60 * 1000)) + 1; // 포함
         const ratio = Math.max(0, Math.min(1, days / dim));
         $('ratio').value = ratio.toFixed(4);
 
@@ -754,7 +837,7 @@
     }
 
     // ---------- 소득 상세 입력 ----------
-    function makeIncomeRow(row = {}){
+    function makeIncomeRow(row = {}) {
       const tr = document.createElement('tr');
 
       const tdName = document.createElement('td');
@@ -810,9 +893,9 @@
       return tr;
     }
 
-    function getDetailRows(){
+    function getDetailRows() {
       const rows = [];
-      for (const tr of $('incomeTbody').querySelectorAll('tr')){
+      for (const tr of $('incomeTbody').querySelectorAll('tr')) {
         const tds = tr.querySelectorAll('td');
         const name = tds[0].querySelector('input')?.value?.trim() || '';
         const amount = toNumber(tds[1].querySelector('input')?.value);
@@ -823,36 +906,36 @@
       return rows;
     }
 
-    function loadExampleRows(){
+    function loadExampleRows() {
       const tbody = $('incomeTbody');
       tbody.innerHTML = '';
       const example = [
-        { name:'기본급', amount:2500000, isOrdinary:true,  payMode:'proportional' },
-        { name:'고정수당(직무/직책 등)', amount:300000, isOrdinary:true, payMode:'proportional' },
-        { name:'식대', amount:200000, isOrdinary:false, payMode:'full' },
-        { name:'교통비', amount:100000, isOrdinary:false, payMode:'full' }
+        { name: '기본급', amount: 2500000, isOrdinary: true, payMode: 'proportional' },
+        { name: '고정수당(직무/직책 등)', amount: 300000, isOrdinary: true, payMode: 'proportional' },
+        { name: '식대', amount: 200000, isOrdinary: false, payMode: 'full' },
+        { name: '교통비', amount: 100000, isOrdinary: false, payMode: 'full' }
       ];
       example.forEach(r => tbody.appendChild(makeIncomeRow(r)));
     }
 
     // ---------- 모드 ----------
-    function getMode(){ return $('modeDetail').checked ? 'detail' : 'direct'; }
+    function getMode() { return $('modeDetail').checked ? 'detail' : 'direct'; }
 
-    function syncModeUI(){
+    function syncModeUI() {
       const mode = getMode();
       $('directBox').style.display = (mode === 'direct') ? 'block' : 'none';
       $('detailBox').style.display = (mode === 'detail') ? 'block' : 'none';
       calc();
     }
 
-    function toggleCompanyBoxes(show){
+    function toggleCompanyBoxes(show) {
       $('companyBeforeBox').style.display = show ? '' : 'none';
-      $('companyAfterBox').style.display  = show ? '' : 'none';
-      $('sumBox').style.display           = show ? '' : 'none';
+      $('companyAfterBox').style.display = show ? '' : 'none';
+      $('sumBox').style.display = show ? '' : 'none';
     }
 
     // ---------- 계산 ----------
-    function calc(){
+    function calc() {
       // 날짜 기반 자동 적용(선택)
       if ($('autoPolicy').checked) applyPolicyByDate();
       if ($('autoRatio').checked) applyRatioByDates();
@@ -872,7 +955,7 @@
       // 시작/종료 기본 검증(메시지가 이미 있을 수 있어 경고가 덮일 수 있음)
       const s = new Date($('startDate').value);
       const e = new Date($('endDate').value);
-      if (!isNaN(s) && !isNaN(e) && e < s){
+      if (!isNaN(s) && !isNaN(e) && e < s) {
         setMsg('err', '종료일이 시작일보다 빠릅니다. 날짜를 확인해 주세요.');
         return;
       } else {
@@ -894,7 +977,7 @@
       let companyAfter = NaN;
       let companyExplain = '';
 
-      if (mode === 'direct'){
+      if (mode === 'direct') {
         const wage = toNumber($('wage').value);
         if (!(wage > 0)) errs.push('W(월 통상임금)은 0보다 커야 해요.');
         W = wage;
@@ -902,7 +985,7 @@
         const companyDirect = toNumber($('companyDirect').value);
         const baseCompany = (companyDirect > 0) ? companyDirect : wage;
         companyBefore = baseCompany * ratio;
-        companyAfter = baseCompany * (H1/H0) * ratio;
+        companyAfter = baseCompany * (H1 / H0) * ratio;
         companyExplain = (companyDirect > 0)
           ? '단축 전 월급(총액) 입력값에 (H₁/H₀) 적용'
           : 'W에 (H₁/H₀) 적용(단순 추정)';
@@ -928,7 +1011,7 @@
         companyExplain = '항목별 지급방식(비례/전액/미지급)으로 계산';
       }
 
-      if (errs.length){
+      if (errs.length) {
         // 기존 경고가 있을 수 있으니 에러 우선 표시
         setMsg('err', errs.join('<br>'));
         return;
@@ -937,7 +1020,7 @@
       const R = H0 - H1;
 
       // 단축이 아니면 급여 0
-      if (!(R > 0)){
+      if (!(R > 0)) {
         $('outW').textContent = fmtWon(W);
         $('outWSub').textContent = (mode === 'detail') ? '“통상임금 포함” 항목 합계' : '직접 입력값';
         $('outR').textContent = `${R.toFixed(0)}시간`;
@@ -951,7 +1034,7 @@
 
         const showCompany = $('showCompany').checked;
         toggleCompanyBoxes(showCompany);
-        if (showCompany){
+        if (showCompany) {
           $('outCompanyBefore').textContent = fmtWon(companyBefore);
           $('outCompanyBeforeSub').textContent = 'ratio 반영';
           $('outCompanyAfter').textContent = fmtWon(companyAfter);
@@ -976,13 +1059,13 @@
       let benefit = Math.max(rawTotal, minTotal);
 
       // 선택: 감액 규정(단순)
-      if ($('applyOffset').checked){
+      if ($('applyOffset').checked) {
         const offsetBaseRaw = toNumber($('offsetBase').value);
         const base = (offsetBaseRaw > 0) ? offsetBaseRaw : W;
         const baseForMonth = base * ratio;
 
         const sum = companyAfter + benefit;
-        if (sum > baseForMonth){
+        if (sum > baseForMonth) {
           const over = sum - baseForMonth;
           benefit = Math.max(0, benefit - over);
         }
@@ -996,10 +1079,10 @@
       $('outBreak').textContent = `A시간=${Ahrs.toFixed(0)} / B시간=${Bhrs.toFixed(0)} (주 기준)`;
 
       $('outA').textContent = fmtWon(A * ratio);
-      $('outASub').textContent = `min(W, capA)=${fmtWon(baseA)} × (A시간/H₀)=${(Ahrs/H0).toFixed(4)} × ratio=${ratio}`;
+      $('outASub').textContent = `min(W, capA)=${fmtWon(baseA)} × (A시간/H₀)=${(Ahrs / H0).toFixed(4)} × ratio=${ratio}`;
 
       $('outB').textContent = fmtWon(B * ratio);
-      $('outBSub').textContent = `min(W×pctB, capB)=${fmtWon(baseB)} × (B시간/H₀)=${(Bhrs/H0).toFixed(4)} × ratio=${ratio}`;
+      $('outBSub').textContent = `min(W×pctB, capB)=${fmtWon(baseB)} × (B시간/H₀)=${(Bhrs / H0).toFixed(4)} × ratio=${ratio}`;
 
       $('outTotal').textContent = fmtWon(benefit);
       const extra = $('applyOffset').checked ? ' / 감액(단순) 적용' : '';
@@ -1007,7 +1090,7 @@
 
       const showCompany = $('showCompany').checked;
       toggleCompanyBoxes(showCompany);
-      if (showCompany){
+      if (showCompany) {
         $('outCompanyBefore').textContent = fmtWon(companyBefore);
         $('outCompanyBeforeSub').textContent = (mode === 'detail') ? '항목 합계 × ratio' : '입력(총액) 또는 W 기준 × ratio';
 
@@ -1020,7 +1103,7 @@
     }
 
     // ---------- 초기화 ----------
-    function reset(){
+    function reset() {
       setMsg('', '');
 
       $('startDate').value = '2026-01-01';
@@ -1068,7 +1151,7 @@
     $('resetBtn').addEventListener('click', reset);
 
     $('addRowBtn').addEventListener('click', () => {
-      $('incomeTbody').appendChild(makeIncomeRow({ name:'', amount:0, isOrdinary:false, payMode:'proportional' }));
+      $('incomeTbody').appendChild(makeIncomeRow({ name: '', amount: 0, isOrdinary: false, payMode: 'proportional' }));
       calc();
     });
     $('loadExampleBtn').addEventListener('click', () => { loadExampleRows(); calc(); });
@@ -1080,12 +1163,12 @@
     $('autoRatio').addEventListener('change', () => { setMsg('', ''); applyRatioByDates(); calc(); });
 
     // currency format on blur
-    ['wage','companyDirect','capA','capB','floor','offsetBase'].forEach(id=>{
-      $(id).addEventListener('blur', (e)=>formatCurrencyInput(e.target));
+    ['wage', 'companyDirect', 'capA', 'capB', 'floor', 'offsetBase'].forEach(id => {
+      $(id).addEventListener('blur', (e) => formatCurrencyInput(e.target));
     });
 
     // Bootstrap tooltips init
-    function initTooltips(){
+    function initTooltips() {
       document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
         new bootstrap.Tooltip(el);
       });
@@ -1096,4 +1179,5 @@
     initTooltips();
   </script>
 </body>
+
 </html>
